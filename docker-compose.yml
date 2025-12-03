@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  unify:
+    build: .
+    container_name: unify-tasks
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - TZ=UTC
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
