@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   unify:
     image: ghcr.io/mrksrus/dual-focus:latest
