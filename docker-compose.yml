@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   unify:
-    build: .
+    image: ghcr.io/mrksrus/dual-focus:latest
     container_name: unify-tasks
     restart: unless-stopped
     ports:
@@ -10,7 +10,7 @@ services:
     environment:
       - TZ=UTC
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
       interval: 30s
       timeout: 10s
       retries: 3
